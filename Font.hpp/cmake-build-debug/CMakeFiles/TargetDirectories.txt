@@ -1,0 +1,3 @@
+C:/Users/Lester Trejos/Documents/RepoLenguajesProyecto1/repolenguajesproyecto1/Font.hpp/cmake-build-debug/CMakeFiles/Font_hpp.dir
+C:/Users/Lester Trejos/Documents/RepoLenguajesProyecto1/repolenguajesproyecto1/Font.hpp/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Lester Trejos/Documents/RepoLenguajesProyecto1/repolenguajesproyecto1/Font.hpp/cmake-build-debug/CMakeFiles/rebuild_cache.dir

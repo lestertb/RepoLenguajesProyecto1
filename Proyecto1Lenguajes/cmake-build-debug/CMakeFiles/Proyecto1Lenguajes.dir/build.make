@@ -77,17 +77,18 @@ include CMakeFiles/Proyecto1Lenguajes.dir/progress.make
 include CMakeFiles/Proyecto1Lenguajes.dir/flags.make
 
 CMakeFiles/Proyecto1Lenguajes.dir/main.c.obj: CMakeFiles/Proyecto1Lenguajes.dir/flags.make
+CMakeFiles/Proyecto1Lenguajes.dir/main.c.obj: CMakeFiles/Proyecto1Lenguajes.dir/includes_C.rsp
 CMakeFiles/Proyecto1Lenguajes.dir/main.c.obj: ../main.c
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Lester Trejos\Documents\RepoLenguajesProyecto1\repolenguajesproyecto1\Proyecto1Lenguajes\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Proyecto1Lenguajes.dir/main.c.obj"
-	"C:\PROGRA~1\JetBrains\CLion 2020.2.1\mingw64\bin\gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Proyecto1Lenguajes.dir\main.c.obj   -c "C:\Users\Lester Trejos\Documents\RepoLenguajesProyecto1\repolenguajesproyecto1\Proyecto1Lenguajes\main.c"
+	"C:\PROGRA~1\JetBrains\CLion 2020.2.1\mingw-w64\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Proyecto1Lenguajes.dir\main.c.obj   -c "C:\Users\Lester Trejos\Documents\RepoLenguajesProyecto1\repolenguajesproyecto1\Proyecto1Lenguajes\main.c"
 
 CMakeFiles/Proyecto1Lenguajes.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Proyecto1Lenguajes.dir/main.c.i"
-	"C:\PROGRA~1\JetBrains\CLion 2020.2.1\mingw64\bin\gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\Lester Trejos\Documents\RepoLenguajesProyecto1\repolenguajesproyecto1\Proyecto1Lenguajes\main.c" > CMakeFiles\Proyecto1Lenguajes.dir\main.c.i
+	"C:\PROGRA~1\JetBrains\CLion 2020.2.1\mingw-w64\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\Lester Trejos\Documents\RepoLenguajesProyecto1\repolenguajesproyecto1\Proyecto1Lenguajes\main.c" > CMakeFiles\Proyecto1Lenguajes.dir\main.c.i
 
 CMakeFiles/Proyecto1Lenguajes.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Proyecto1Lenguajes.dir/main.c.s"
-	"C:\PROGRA~1\JetBrains\CLion 2020.2.1\mingw64\bin\gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\Lester Trejos\Documents\RepoLenguajesProyecto1\repolenguajesproyecto1\Proyecto1Lenguajes\main.c" -o CMakeFiles\Proyecto1Lenguajes.dir\main.c.s
+	"C:\PROGRA~1\JetBrains\CLion 2020.2.1\mingw-w64\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\Lester Trejos\Documents\RepoLenguajesProyecto1\repolenguajesproyecto1\Proyecto1Lenguajes\main.c" -o CMakeFiles\Proyecto1Lenguajes.dir\main.c.s
 
 # Object files for target Proyecto1Lenguajes
 Proyecto1Lenguajes_OBJECTS = \
@@ -98,6 +99,9 @@ Proyecto1Lenguajes_EXTERNAL_OBJECTS =
 
 Proyecto1Lenguajes.exe: CMakeFiles/Proyecto1Lenguajes.dir/main.c.obj
 Proyecto1Lenguajes.exe: CMakeFiles/Proyecto1Lenguajes.dir/build.make
+Proyecto1Lenguajes.exe: C:/Program\ Files/JetBrains/CLion\ 2020.2.1/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/libsfml-graphics-d.a
+Proyecto1Lenguajes.exe: C:/Program\ Files/JetBrains/CLion\ 2020.2.1/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/libsfml-window-d.a
+Proyecto1Lenguajes.exe: C:/Program\ Files/JetBrains/CLion\ 2020.2.1/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/libsfml-system-d.a
 Proyecto1Lenguajes.exe: CMakeFiles/Proyecto1Lenguajes.dir/linklibs.rsp
 Proyecto1Lenguajes.exe: CMakeFiles/Proyecto1Lenguajes.dir/objects1.rsp
 Proyecto1Lenguajes.exe: CMakeFiles/Proyecto1Lenguajes.dir/link.txt

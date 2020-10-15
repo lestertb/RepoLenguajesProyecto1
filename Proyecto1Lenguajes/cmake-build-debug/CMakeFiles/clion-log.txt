@@ -1,11 +1,5 @@
 "C:\Program Files\JetBrains\CLion 2020.2.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" "C:\Users\Lester Trejos\Documents\RepoLenguajesProyecto1\repolenguajesproyecto1\Proyecto1Lenguajes"
--- The C compiler identification is GNU 8.1.0
--- Check for working C compiler: C:/Program Files/JetBrains/CLion 2020.2.1/mingw64/bin/gcc.exe
--- Check for working C compiler: C:/Program Files/JetBrains/CLion 2020.2.1/mingw64/bin/gcc.exe - works
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
--- Detecting C compile features
--- Detecting C compile features - done
+-- Found SFML 2.5.1 in C:/Program Files/JetBrains/CLion 2020.2.1/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/cmake/SFML
 -- Configuring done
 -- Generating done
 -- Build files have been written to: C:/Users/Lester Trejos/Documents/RepoLenguajesProyecto1/repolenguajesproyecto1/Proyecto1Lenguajes/cmake-build-debug
