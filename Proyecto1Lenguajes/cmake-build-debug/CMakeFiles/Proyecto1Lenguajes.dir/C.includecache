@@ -595,4 +595,8 @@ SFML/Graphics.h
 -
 SFML/Window.h
 -
+stdbool.h
+-
+string.h
+-
 
