@@ -51,7 +51,7 @@ void testResize(const sfImage* originalImg, sfImage* resizedImg){
  *  1 : imagen funciona
 */
 int VerificarSizeImg(unsigned int x, unsigned int y){
-    if (x < 640 && y < 480){
+    if (x < 390 && y < 250){
         return 0;
     }else if (x > 2048 && y > 1536){
         return -1;
@@ -78,15 +78,15 @@ void CrearPostal(char* rutaImg, int extension, char* nombreResultado, char* text
     struct sfImage* ImgDefaultSize;
 
     if (VerificarSizeImg(sizeImgToResize.x, sizeImgToResize.y) == 0){
-        printf("La imagen no tiene la resolucion minima que se requiere, intente con otra");
-        exit(-1);
+        printf("\nLa imagen no tiene la resolucion minima que se requiere, intente con otra imagen");
+        exit(0);
     }
     else if(VerificarSizeImg(sizeImgToResize.x, sizeImgToResize.y) == -1){
-        printf("La imagen excede el size maximo, re-ajustando la imagen");
-        ImgDefaultSize = defaultSizeImgMax();
+        printf("\nLa imagen excede el size maximo, re-ajustando la imagen al estandar");
+        ImgDefaultSize = defaultSizeImg();
         testResize(img1,ImgDefaultSize);
     }else{
-        printf("Estandarizando imagen para crear postal");
+        printf("\nEstandarizando imagen para crear postal");
         ImgDefaultSize = defaultSizeImg();
         testResize(img1,ImgDefaultSize);
     }
@@ -103,12 +103,12 @@ void CrearPostal(char* rutaImg, int extension, char* nombreResultado, char* text
         font = sfFont_createFromFile("C:\\Users\\Lester Trejos\\Documents\\RepoLenguajesProyecto1\\repolenguajesproyecto1\\Proyecto1Lenguajes\\Assets\\Fonts\\noto-sans-bold.ttf");
     }
     else if  (tipoLetra == 2){
-        font = sfFont_createFromFile("C:\\Users\\Lester Trejos\\Documents\\RepoLenguajesProyecto1\\repolenguajesproyecto1\\Proyecto1Lenguajes\\Assets\\Fonts\\boxicons.ttf");
+        font = sfFont_createFromFile("C:\\Users\\Lester Trejos\\Documents\\RepoLenguajesProyecto1\\repolenguajesproyecto1\\Proyecto1Lenguajes\\Assets\\Fonts\\Smith mouth.ttf");
     }
     else if (tipoLetra == 3){
-        font = sfFont_createFromFile("C:\\Users\\Lester Trejos\\Documents\\RepoLenguajesProyecto1\\repolenguajesproyecto1\\Proyecto1Lenguajes\\Assets\\Fonts\\fontawesome-webfont.ttf");
+        font = sfFont_createFromFile("C:\\Users\\Lester Trejos\\Documents\\RepoLenguajesProyecto1\\repolenguajesproyecto1\\Proyecto1Lenguajes\\Assets\\Fonts\\The Loccosta FREE.ttf");
     }else{
-        printf("El tipo de letra ingresado no existe, colocando tipo de letra default: 1");
+        printf("\nEl tipo de letra ingresado no existe, colocando tipo de letra default: 1");
         font = sfFont_createFromFile("C:\\Users\\Lester Trejos\\Documents\\RepoLenguajesProyecto1\\repolenguajesproyecto1\\Proyecto1Lenguajes\\Assets\\Fonts\\noto-sans-bold.ttf");
     }
     sfText *textArriba;
@@ -126,7 +126,7 @@ void CrearPostal(char* rutaImg, int extension, char* nombreResultado, char* text
     else if (tamannoLetra == 3){
         sizeLetra = 50;
     }else{
-        printf("El tamanno de letra ingresado no existe, colocando tamanno default: 1");
+        printf("\nEl tamanno de letra ingresado no existe, colocando tamanno default: 1");
         sizeLetra = 100;
     }
 
@@ -138,7 +138,7 @@ void CrearPostal(char* rutaImg, int extension, char* nombreResultado, char* text
     sfText_setCharacterSize(textArriba, sizeLetra);
 
     textAbajo = sfText_create();
-    sfVector2f vecAbajo  = { 100, 100 }; // posicion del texto
+    sfVector2f vecAbajo  = { 0, 500 }; // posicion del texto
     sfText_setPosition(textAbajo,vecAbajo);
     sfText_setString(textAbajo, text2);
     sfText_setFont(textAbajo, font);
@@ -207,11 +207,11 @@ void CrearPostal(char* rutaImg, int extension, char* nombreResultado, char* text
 int main() {
     //Crear postal con imagen por parametro
     //Postal con formato JPG
-    CrearPostal("C:\\Users\\Lester Trejos\\Documents\\RepoLenguajesProyecto1\\repolenguajesproyecto1\\Proyecto1Lenguajes\\Assets\\edificio.jpg",1,"edificio2","sdasdasdasdasdasdasdfasdnas dnas dkas jasnd nasjknd kj","abasdasdasdasjo",1,3);
+    CrearPostal("C:\\Users\\Lester Trejos\\Documents\\RepoLenguajesProyecto1\\repolenguajesproyecto1\\Proyecto1Lenguajes\\Assets\\edificio.jpg",1,"resultado1","sdasdasdasdasdasdasdfasdnas dnas dkas jasnd nasjknd kj","aasdsaad",1,1);
     //Postal con formato PNG
-    //CrearPostal("C:\\Users\\Lester Trejos\\Documents\\RepoLenguajesProyecto1\\repolenguajesproyecto1\\Proyecto1Lenguajes\\Assets\\edificio2.png");
+    //CrearPostal("C:\\Users\\Lester Trejos\\Documents\\RepoLenguajesProyecto1\\repolenguajesproyecto1\\Proyecto1Lenguajes\\Assets\\instagram.png",2,"resultado2","sdasdasdasdasdasdasdfasdnas dnas dkas jasnd nasjknd kj","aasdsaad",1,1);
     //Postal con formato BMP
-    //CrearPostal("C:\\Users\\Lester Trejos\\Documents\\RepoLenguajesProyecto1\\repolenguajesproyecto1\\Proyecto1Lenguajes\\Assets\\testImgMin.jpg");
+    //CrearPostal("C:\\Users\\Lester Trejos\\Documents\\RepoLenguajesProyecto1\\repolenguajesproyecto1\\Proyecto1Lenguajes\\Assets\\Bitmap3.bmp",3,"resultado3","sdasdasdasdasdasdasdfasdnas dnas dkas jasnd nasjknd kj","aasdsaad",1,1);
 
     return 0;
 }
