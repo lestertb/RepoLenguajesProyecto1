@@ -5,20 +5,11 @@
 #include <stdbool.h>
 #include <string.h>
 
-
-//Imagen con tamaño por defecto para realizar re-ajuste.
-struct sfImage* defaultSizeImgMax(){
-    sfImage* resultImg =  sfImage_create(2048,1536);
-    return resultImg;
-}
-
 //Imagen con tamaño por defecto para realizar re-ajuste.
 struct sfImage* defaultSizeImg(){
     sfImage* resultImg =  sfImage_create(1080,720);
     return resultImg;
 }
-
-
 
 //Re-ajusta la imagen original a el tamaño predefinido de resizedImg
 void testResize(const sfImage* originalImg, sfImage* resizedImg){
@@ -37,8 +28,6 @@ void testResize(const sfImage* originalImg, sfImage* resizedImg){
     }
 
 }
-
-
 
 //Funcion que verifica las restricciones del tamaño.
 /*
@@ -59,12 +48,16 @@ int VerificarSizeImg(unsigned int x, unsigned int y){
         return 1;
 }
 
-
 //Funcion que crea la postal:
 /*
  * ----Parametros--------
  * char* rutaImg : ruta donde se encuentra la imagen
  * int extension : valor que especifica la extension, 1 = jpg, 2 = png, 3 = bmp
+ * char* nombreResultado : nombre para el resultado del archivo
+ * char* text1 : texto que se coloca arriba en la imagen
+ * char* text2 : texto que se coloca abajo en la imagen
+ * int tipoLetra: valor númerico para elegir el tipo de letra pre-definido (1,2,3)
+ * int tamannoLetra: valor númerico para elegir el tamaño de letra pre-definido (1,2,3)
 */
 
 void CrearPostal(char* rutaImg, int extension, char* nombreResultado, char* text1, char* text2, int tipoLetra, int tamannoLetra){
@@ -78,8 +71,9 @@ void CrearPostal(char* rutaImg, int extension, char* nombreResultado, char* text
     struct sfImage* ImgDefaultSize;
 
     if (VerificarSizeImg(sizeImgToResize.x, sizeImgToResize.y) == 0){
-        printf("\nLa imagen no tiene la resolucion minima que se requiere, intente con otra imagen");
-        exit(0);
+        printf("\nLa imagen no tiene la resolucion minima que se requiere, re-ajustando");
+        ImgDefaultSize = defaultSizeImg();
+        testResize(img1,ImgDefaultSize);
     }
     else if(VerificarSizeImg(sizeImgToResize.x, sizeImgToResize.y) == -1){
         printf("\nLa imagen excede el size maximo, re-ajustando la imagen al estandar");
@@ -111,39 +105,48 @@ void CrearPostal(char* rutaImg, int extension, char* nombreResultado, char* text
         printf("\nEl tipo de letra ingresado no existe, colocando tipo de letra default: 1");
         font = sfFont_createFromFile("C:\\Users\\Lester Trejos\\Documents\\RepoLenguajesProyecto1\\repolenguajesproyecto1\\Proyecto1Lenguajes\\Assets\\Fonts\\noto-sans-bold.ttf");
     }
+
     sfText *textArriba;
-
-    sfText *textAbajo;
-
-    int sizeLetra;
-
-    if (tamannoLetra == 1){
-        sizeLetra = 100;
-    }
-    else if  (tamannoLetra == 2){
-        sizeLetra = 75;
-    }
-    else if (tamannoLetra == 3){
-        sizeLetra = 50;
-    }else{
-        printf("\nEl tamanno de letra ingresado no existe, colocando tamanno default: 1");
-        sizeLetra = 100;
-    }
-
     textArriba = sfText_create();
-    sfVector2f vecArriba  = { 0, 0 }; // posicion del texto
+    sfVector2f vecArriba  = {250,0};
     sfText_setPosition(textArriba,vecArriba);
     sfText_setString(textArriba, text1);
     sfText_setFont(textArriba, font);
-    sfText_setCharacterSize(textArriba, sizeLetra);
 
+    sfText *textAbajo;
     textAbajo = sfText_create();
-    sfVector2f vecAbajo  = { 0, 500 }; // posicion del texto
+    sfVector2f vecAbajo  = { 425, 600 };
     sfText_setPosition(textAbajo,vecAbajo);
     sfText_setString(textAbajo, text2);
     sfText_setFont(textAbajo, font);
-    sfText_setCharacterSize(textAbajo, sizeLetra);
 
+    int sizeLetra1;
+    int sizeLetra2;
+
+    if (tamannoLetra == 1){
+        sizeLetra1 = 100;
+        sizeLetra2 = 75;
+        sfText_setCharacterSize(textArriba, sizeLetra1);
+        sfText_setCharacterSize(textAbajo, sizeLetra2);
+    }
+    else if  (tamannoLetra == 2){
+        sizeLetra1 = 75;
+        sizeLetra2 = 50;
+        sfText_setCharacterSize(textArriba, sizeLetra1);
+        sfText_setCharacterSize(textAbajo, sizeLetra2);
+    }
+    else if (tamannoLetra == 3){
+        sizeLetra1 = 50;
+        sizeLetra2 = 25;
+        sfText_setCharacterSize(textArriba, sizeLetra1);
+        sfText_setCharacterSize(textAbajo, sizeLetra2);
+    }else{
+        printf("\nEl tamanno de las letra ingresado no existe, colocando tamannos default: 1");
+        sizeLetra1 = 100;
+        sizeLetra2 = 75;
+        sfText_setCharacterSize(textArriba, sizeLetra1);
+        sfText_setCharacterSize(textAbajo, sizeLetra2);
+    }
 
     sfRenderTexture *texturWithText = sfRenderTexture_create(sizeImg.x, sizeImg.y, sfTrue);
 
@@ -207,11 +210,11 @@ void CrearPostal(char* rutaImg, int extension, char* nombreResultado, char* text
 int main() {
     //Crear postal con imagen por parametro
     //Postal con formato JPG
-    CrearPostal("C:\\Users\\Lester Trejos\\Documents\\RepoLenguajesProyecto1\\repolenguajesproyecto1\\Proyecto1Lenguajes\\Assets\\edificio.jpg",1,"resultado1","sdasdasdasdasdasdasdfasdnas dnas dkas jasnd nasjknd kj","aasdsaad",1,1);
+    CrearPostal("C:\\Users\\Lester Trejos\\Documents\\RepoLenguajesProyecto1\\repolenguajesproyecto1\\Proyecto1Lenguajes\\Assets\\edificio.jpg",2,"resultado1","texto1 largo","texto2",1,1);
     //Postal con formato PNG
-    //CrearPostal("C:\\Users\\Lester Trejos\\Documents\\RepoLenguajesProyecto1\\repolenguajesproyecto1\\Proyecto1Lenguajes\\Assets\\instagram.png",2,"resultado2","sdasdasdasdasdasdasdfasdnas dnas dkas jasnd nasjknd kj","aasdsaad",1,1);
+    //CrearPostal("C:\\Users\\Lester Trejos\\Documents\\RepoLenguajesProyecto1\\repolenguajesproyecto1\\Proyecto1Lenguajes\\Assets\\instagram.png",2,"resultado2","texto1","texto2",1,1);
     //Postal con formato BMP
-    //CrearPostal("C:\\Users\\Lester Trejos\\Documents\\RepoLenguajesProyecto1\\repolenguajesproyecto1\\Proyecto1Lenguajes\\Assets\\Bitmap3.bmp",3,"resultado3","sdasdasdasdasdasdasdfasdnas dnas dkas jasnd nasjknd kj","aasdsaad",1,1);
+    //CrearPostal("C:\\Users\\Lester Trejos\\Documents\\RepoLenguajesProyecto1\\repolenguajesproyecto1\\Proyecto1Lenguajes\\Assets\\Bitmap3.bmp",3,"resultado3","texto1","texto2",1,1);
 
     return 0;
 }
